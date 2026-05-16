@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8 glass-card text-center">
+
+        <h2 class="mb-4">
+            🌿 Prediction Result
+        </h2>
+
+        <div class="result-box">
+
+            <h3 class="text-success">
+                Predicted Message Type:
+            </h3>
+
+            <h1 class="mt-3 mb-4">
+                {{ result }}
+            </h1>
+
+            <h4 class="text-dark">
+                Meaning
+            </h4>
+
+            <p class="mt-3 fs-5 text-dark">
+                {{ meaning }}
+            </p>
+
+        </div>
+
+        <h3 class="mt-5">
+            🏆 Best Performing Algorithm
+        </h3>
+
+        <h4 class="text-warning mt-3">
+            {{ best_model }}
+        </h4>
+
+        <h3 class="mt-5">
+            📊 Accuracy Comparison
+        </h3>
+
+        <table class="table table-bordered table-hover mt-4">
+
+            <tr>
+                <th>Algorithm</th>
+                <th>Accuracy</th>
+            </tr>
+
+            {% for name, acc in accuracies.items %}
+
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ acc }}%</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <a href="/form/" class="btn btn-custom mt-4">
+            Predict Again
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
